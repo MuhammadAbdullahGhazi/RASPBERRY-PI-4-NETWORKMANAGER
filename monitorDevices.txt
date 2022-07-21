@@ -1,0 +1,7 @@
+void CmdLauncher::monitorDevices() {
+    QStringList device_monitoring_on = {"nmcli", "monitor"};
+    device_monitoring_process = new QProcess(this);
+    device_monitoring_process->setProcessChannelMode(QProcess::MergedChannels);
+    device_monitoring_process->start("sudo", device_monitoring_on);
+    connect(device_monitoring_process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
+}

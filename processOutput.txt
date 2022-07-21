@@ -1,0 +1,7 @@
+void CmdLauncher::processOutput() {
+    QProcess* senderProcess = qobject_cast(sender());
+    senderProcess->setReadChannel(QProcess::StandardOutput);
+
+    QString message = QString::fromLocal8Bit(senderProcess->readAllStandardOutput());
+
+    qDebug() 

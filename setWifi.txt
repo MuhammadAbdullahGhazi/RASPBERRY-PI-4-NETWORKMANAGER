@@ -1,0 +1,9 @@
+void CmdLauncher::setWifi(QString ssid) {
+    error_messages = "";
+    emit getErrorMessagesChanged();
+
+    QString uuid = "";
+    for (int i = 0 ; i setProcessChannelMode(QProcess::MergedChannels);
+    set_wifi_process->start("sudo", args_wifi_exist);
+    connect(set_wifi_process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
+}
